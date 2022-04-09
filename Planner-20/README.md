@@ -27,15 +27,15 @@ Remote repository for event booking software component system.
 ![directory](./dir.png)
 ![directory2](./planner.png)
 
-5. Right click on the Planner-20 project from the project explorer right pane.
+5. After your project load, right click on the Planner-20 project from the project explorer right pane.
 
 ![directory2](./select-project.png)
 
-6. Select all existing JAR files under Classpath and click Remove.
+6. Select all existing JAR files under Classpath and click Remove. We need to rebuild the path from your local repo.
 
 ![existing JAR files](./remove_class_path.png)
 
-7. Click Add JARs... and select your local JAR files from your local repository then click Apply and Close button.
+7. Click Add JARs... and select your local JAR files from your local repository then click Apply and Close button. This will point to the correct paths.
 
 ![directory2](./new-jar.png)
 
