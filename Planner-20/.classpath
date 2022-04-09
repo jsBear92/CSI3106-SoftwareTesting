@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path=""/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
+	<classpathentry kind="lib" path="/Users/js_bear/Downloads/Planner-22/deps/system-lambda-1.2.0.jar"/>
+	<classpathentry kind="lib" path="/Users/js_bear/Downloads/Planner-22/deps/byte-buddy-1.10.5.jar"/>
+	<classpathentry kind="lib" path="/Users/js_bear/Downloads/Planner-22/deps/mockito-core-3.3.3.jar"/>
+	<classpathentry kind="lib" path="/Users/js_bear/Downloads/Planner-22/deps/byte-buddy-agent-1.10.5.jar"/>
+	<classpathentry kind="lib" path="/Users/js_bear/Downloads/Planner-22/deps/objenesis-2.6.jar"/>
+	<classpathentry kind="lib" path="/Users/js_bear/Downloads/Planner-22/deps/opentest4j-1.1.1.jar"/>
+	<classpathentry kind="lib" path="/Users/js_bear/Downloads/Planner-22/deps/mockito-junit-jupiter-3.3.3.jar"/>
+	<classpathentry kind="lib" path="/Users/js_bear/Downloads/Planner-22/deps/apiguardian-api-1.0.0.jar"/>
+	<classpathentry kind="output" path=""/>
+</classpath>
