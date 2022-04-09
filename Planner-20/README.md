@@ -23,6 +23,7 @@ Remote repository for event booking software component system.
 3. Open your Eclipse IDE
 4. Go to File > Select Open Projects from File System > Click the Directory button > Select the folder where you download our repository
 
+![directory](./start.png)
 ![directory](./dir.png)
 ![directory2](./planner.png)
 
