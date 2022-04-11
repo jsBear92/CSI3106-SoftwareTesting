@@ -55,3 +55,14 @@ Please create your own branch when creating your test cases by branching off of 
 5. Room
 6. Person
 7. Organisation
+
+## Identified issues
+
+1. In the event of a leap year, Feb 29 is valid but unable to book any event on that day.
+2. Issues associated with booking an event between 11.00pm – 11.59pm
+3. Bookings associated with 30th November
+4. Input checking and Ambiguous error messages
+5. Case sensitivity associated with inputs
+6. Bookings associated with certain days of the month
+7. A vacation can be booked with a start date of the 32nd day of a month  
+
