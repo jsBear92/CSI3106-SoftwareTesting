@@ -14,7 +14,7 @@ Remote repository for event booking software component system.
 
 1. Click the Code button, select **HTTPS** and copy the url.
 
-![Clone repo](./clone.png)
+![Clone repo](./images/clone.png)
 
 2. Go to your command line terminal and type:
 
@@ -23,37 +23,37 @@ Remote repository for event booking software component system.
 3. Open your Eclipse IDE
 4. Go to File > Select Open Projects from File System > Click the Directory button > Select the folder where you download our repository
 
-![directory](./start.png)
-![directory](./dir.png)
-![directory2](./planner.png)
+![directory](./images/start.png)
+![directory](./images/dir.png)
+![directory2](./images/planner.png)
 
 5. After your project load, right click on the Planner-20 project from the project explorer right pane.
 
-![directory2](./select-project.png)
+![directory2](./images/select-project.png)
 
 6. Select all existing JAR files under Classpath and click Remove. We need to rebuild the path from your local repo.
 
-![existing JAR files](./remove_class_path.png)
+![existing JAR files](./images/remove_class_path.png)
 
 7. Click Add JARs... and select your local JAR files from your local repository then click Apply and Close button. This will point to the correct paths.
 
-![directory2](./new-jar.png)
+![directory2](./images/new-jar.png)
 
 8. Right click on the Planner-20 project > Select Run As > Select Java Application to run the console app
 
-![directory2](./run-java-app.png)
+![directory2](./images/run-java-app.png)
 
 then select the Planner class then click OK.
 
-![directory2](./select-planner.png)
+![directory2](./images/select-planner.png)
 
 Check if everything is working
 
-![directory2](./java-app.png)
+![directory2](./images/java-app.png)
 
 9. To run test cases using JUnit, right click on the Planner-20 project > Select Run as > Select JUnit Test.
 
-![directory2](./j-unit.png)
+![directory2](./images/j-unit.png)
 
 ## Branching
 
