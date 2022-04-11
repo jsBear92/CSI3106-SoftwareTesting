@@ -20,40 +20,16 @@ Remote repository for event booking software component system.
 
    <code>git clone https://github.com/jsBear92/CSI3106-SoftwareTesting.git</code>
 
-3. Open your Eclipse IDE
-4. Go to File > Select Open Projects from File System > Click the Directory button > Select the folder where you download our repository
+3. Open your Eclipse IDE, go to File > Import > Existing Projects into Workspace > Select root directory > Browse > and select CSI3106-SoftwareTesting.
+   ![Clone repo](./images/import.png)
 
-![directory](./images/start.png)
-![directory](./images/dir.png)
-![directory2](./images/planner.png)
+4. Check Search for nested projects and click the Finish button.
+   ![Clone repo](./images/root-dir.png)
+5. To run the console app: right click CSI3106-SoftwareTesting project > Run as > Select 1 Java Application.
+   ![Clone repo](./images/run-as-java-app.png)
 
-5. After your project load, right click on the Planner-20 project from the project explorer right pane.
-
-![directory2](./images/select-project.png)
-
-6. Select all existing JAR files under Classpath and click Remove. We need to rebuild the path from your local repo.
-
-![existing JAR files](./images/remove_class_path.png)
-
-7. Click Add JARs... and select your local JAR files from your local repository then click Apply and Close button. This will point to the correct paths.
-
-![directory2](./images/new-jar.png)
-
-8. Right click on the Planner-20 project > Select Run As > Select Java Application to run the console app
-
-![directory2](./images/run-java-app.png)
-
-then select the Planner class then click OK.
-
-![directory2](./images/select-planner.png)
-
-Check if everything is working
-
-![directory2](./images/java-app.png)
-
-9. To run test cases using JUnit, right click on the Planner-20 project > Select Run as > Select JUnit Test.
-
-![directory2](./images/j-unit.png)
+6. To run your test cases: right click CSI3106-SoftwareTesting project > Run as > Select 2 JUnit Test.
+   ![Clone repo](./images/run-as-junit.png)
 
 ## Branching
 
