@@ -25,9 +25,9 @@ Remote repository for event booking software component system.
 
 4. Check Search for nested projects and click the Finish button.
    ![Clone repo](./images/root-dir.png)
-5. To run the console app: right click CSI3106-SoftwareTesting project > Run as > Select 1 Java Application.
+5. To run the console app: right click CSI3106-SoftwareTesting project > Run as > Select 1 Java Application, and select Planner if prompted.
    ![Clone repo](./images/run-as-java-app.png)
-
+   ![Clone repo](./images/select-planner.png)
 6. To run your test cases: right click CSI3106-SoftwareTesting project > Run as > Select 2 JUnit Test.
    ![Clone repo](./images/run-as-junit.png)
 
