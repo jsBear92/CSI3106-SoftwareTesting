@@ -66,3 +66,9 @@ Please create your own branch when creating your test cases by branching off of 
 6. Bookings associated with certain days of the month
 7. A vacation can be booked with a start date of the 32nd day of a month  
 
+
+## How to enable Eclipse autocomplete
+
+1. Go to Window Tab > Preferences > Java > Editor > Select Content Assist and follow the configuration on the following screenshot.
+
+![autocomplete](./images/autocomplete.png)
