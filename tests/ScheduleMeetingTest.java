@@ -18,10 +18,8 @@ public class ScheduleMeetingTest {
 	@DisplayName("Month is less than or equal to 12")
 	public void testValidMonth(Room room) {
 		Exception exception = assertThrows(ConflictsException.class, ()-> room.isBusy(12, 25, 4, 5));
-	    String expectedMessage = "Month does not exist.";
 	    String actualMessage   = exception.getMessage();
 	    assertEquals("", actualMessage);
-		
 	}
 	
     @Test
