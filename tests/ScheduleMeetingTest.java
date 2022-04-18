@@ -1,6 +1,7 @@
 package tests;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.DisplayName;
@@ -14,9 +15,13 @@ import au.edu.sccs.csp3105.NBookingPlanner.Room;
 @DisplayName("Schedule a meeting test")
 public class ScheduleMeetingTest {
 	@Test
-	@DisplayName("Month is greater than 12")
-	public void testInvalidMonth(Room room) {
-		assertThrows(ConflictsException.class, ()-> room.isBusy(12, 25, 4, 5));
+	@DisplayName("Month is less than or equal to 12")
+	public void testValidMonth(Room room) {
+		Exception exception = assertThrows(ConflictsException.class, ()-> room.isBusy(12, 25, 4, 5));
+	    String expectedMessage = "Month does not exist.";
+	    String actualMessage   = exception.getMessage();
+	    assertEquals("", actualMessage);
+		
 	}
 	
     @Test
