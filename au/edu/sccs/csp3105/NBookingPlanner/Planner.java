@@ -99,7 +99,7 @@ public class Planner {
 	 * Allows the user to schedule a meeting by entering 
 	 * information about the meeting.
 	 */
-	public void scheduleMeeting() {
+	public void scheduleMeeting() { 
 
 		//Read in month
 		int month = Integer.parseInt(inputOutput("\nEnter the month of the meeting (1-12): "));
