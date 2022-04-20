@@ -4,3 +4,7 @@
 /ScheduleMeetingTest.class
 /MeetingParameterResolver.class
 /RoomParameterResolver.class
+/Utility.class
+/UtilityTest.class
+/DaysArgumentProvider.class
+/CalendarParameterResolver.class
