@@ -6,7 +6,6 @@ package au.edu.sccs.csp3105.NBookingPlanner;
 public class ConflictsException extends Exception {
 	public ConflictsException() throws ConflictsException {
 		// TODO Auto-generated constructor stub
-		throw new ConflictsException("IT WORKS.");
 	}
 
 	public ConflictsException(String message) throws ConflictsException {
