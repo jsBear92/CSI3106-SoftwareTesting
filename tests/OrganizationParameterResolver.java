@@ -12,7 +12,6 @@ public class OrganizationParameterResolver implements ParameterResolver {
 	@Override
 	public boolean supportsParameter(ParameterContext parameterContext, ExtensionContext extensionContext) throws ParameterResolutionException {
 		// TODO Auto-generated method stub
-		
 		return parameterContext.getParameter().getType() == Organization.class;
 	}
 
@@ -21,5 +20,4 @@ public class OrganizationParameterResolver implements ParameterResolver {
 		// TODO Auto-generated method stub
 		return new Organization();
 	}
-
 }

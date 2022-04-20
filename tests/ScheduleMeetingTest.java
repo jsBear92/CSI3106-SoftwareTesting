@@ -14,13 +14,12 @@ import org.junit.jupiter.params.provider.ValueSource;
 
 import au.edu.sccs.csp3105.NBookingPlanner.ConflictsException;
 import au.edu.sccs.csp3105.NBookingPlanner.Organization;
-import au.edu.sccs.csp3105.NBookingPlanner.Person;
 import au.edu.sccs.csp3105.NBookingPlanner.Room;
 
-@ExtendWith(PersonParameterResolver.class)
-@ExtendWith(OrganizationParameterResolver.class)
+
 @ExtendWith(CalendarParameterResolver.class)
 @ExtendWith(RoomParameterResolver.class)
+@ExtendWith(OrganizationParameterResolver.class)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 @DisplayName("Schedule a meeting test")
 public class ScheduleMeetingTest {
@@ -80,18 +79,14 @@ public class ScheduleMeetingTest {
 	    assertTrue(actualMessage.contains(expectedMessage));
     }
 	
-//  @ValueSource(strings = { "JO18.330", "ICT30.300", "ML13.218" })
-	
 	@Order(6)
     @ParameterizedTest
-    @CsvFileSource(resources = "employees.csv")
-    @DisplayName("EQ / BVA + Exception: Person")
+    @CsvFileSource(resources = "/tests/resources/employees.csv" )
+    @DisplayName("EQ / BVA + Exception: Attendees")
     public void testInvalidAttendee(String name, Organization org) {
 	    Exception exception = assertThrows(Exception.class, ()-> assertTrue(name == org.getEmployee(name).getName()));
-	    String expectedMessage = "Requested room does not exist";
+	    String expectedMessage = "Requested employee does not exist";
 	    String actualMessage   = exception.getMessage();
-		assertTrue(actualMessage.contains(expectedMessage));
-		
-		
+	    assertTrue(actualMessage.contains(expectedMessage));
 	}
 }
