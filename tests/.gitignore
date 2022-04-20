@@ -8,3 +8,5 @@
 /UtilityTest.class
 /DaysArgumentProvider.class
 /CalendarParameterResolver.class
+/Organization.class
+/OrganizationParameterResolver.class
