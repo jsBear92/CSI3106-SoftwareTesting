@@ -17,7 +17,6 @@ import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.MethodSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
-import au.edu.sccs.csp3105.NBookingPlanner.Calendar;
 import au.edu.sccs.csp3105.NBookingPlanner.ConflictsException;
 import au.edu.sccs.csp3105.NBookingPlanner.Room;
 
@@ -25,6 +24,7 @@ import au.edu.sccs.csp3105.NBookingPlanner.Room;
 @ExtendWith(RoomParameterResolver.class)
 @DisplayName("Schedule a meeting test")
 public class ScheduleMeetingTest {
+	
     @ParameterizedTest
     @ValueSource(ints = {0, 1, 30, 31, 32 })
     @DisplayName("EQ & BVA Day input testing")
