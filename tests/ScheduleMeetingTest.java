@@ -2,6 +2,7 @@ package tests;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assumptions.assumingThat;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.MethodOrderer;
@@ -13,17 +14,20 @@ import org.junit.jupiter.params.provider.CsvFileSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import au.edu.sccs.csp3105.NBookingPlanner.ConflictsException;
+import au.edu.sccs.csp3105.NBookingPlanner.Meeting;
 import au.edu.sccs.csp3105.NBookingPlanner.Organization;
+import au.edu.sccs.csp3105.NBookingPlanner.Person;
 import au.edu.sccs.csp3105.NBookingPlanner.Room;
 
-
+// To do: Separate functional testing (BVA + EQ) to Exception testing
+@ExtendWith(PersonParameterResolver.class)
+@ExtendWith(MeetingParameterResolver.class)
 @ExtendWith(CalendarParameterResolver.class)
 @ExtendWith(RoomParameterResolver.class)
 @ExtendWith(OrganizationParameterResolver.class)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 @DisplayName("Schedule a meeting test")
 public class ScheduleMeetingTest {
-
 	@Order(1)
     @ParameterizedTest
     @ValueSource(ints = {0, 1, 2, 12, 13 })
@@ -89,4 +93,16 @@ public class ScheduleMeetingTest {
 	    String actualMessage   = exception.getMessage();
 	    assertTrue(actualMessage.contains(expectedMessage));
 	}
+	
+//	@Order(7)
+//    @ParameterizedTest
+//    @CsvFileSource(resources = { "/tests/resources/meetings.csv", "/tests/resources/attendees.csv" } )
+//    @DisplayName("EQ / BVA + Exception: Add Meeting")
+//    public void testAddMeeting(Room where, Person person) {
+//	    // Get meeting = assumingThat(IF MEETING IS NOT IN THE CALENDAR AND NO EXCEPTION, () -> {
+//		    // Room.addMeeting(meeting)
+//		    // Person.addMeeting(meeting)
+//	    // });
+//		assumingThat(where.getMeeting(0, 0, 0), null);
+//	}
 }
