@@ -1,4 +1,4 @@
-package tests;
+package tests.structural;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 

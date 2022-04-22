@@ -1,4 +1,4 @@
-package tests;
+package tests.functional;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -18,6 +18,11 @@ import au.edu.sccs.csp3105.NBookingPlanner.Meeting;
 import au.edu.sccs.csp3105.NBookingPlanner.Organization;
 import au.edu.sccs.csp3105.NBookingPlanner.Person;
 import au.edu.sccs.csp3105.NBookingPlanner.Room;
+import tests.resolver.CalendarParameterResolver;
+import tests.resolver.MeetingParameterResolver;
+import tests.resolver.OrganizationParameterResolver;
+import tests.resolver.PersonParameterResolver;
+import tests.resolver.RoomParameterResolver;
 
 // To do: Separate functional testing (BVA + EQ) to Exception testing
 @ExtendWith(PersonParameterResolver.class)
