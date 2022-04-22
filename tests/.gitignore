@@ -1,1 +1,15 @@
 /PlannerTest.class
+/PlannerParameterResolver.class
+/PlanerParameterResolver.class
+/ScheduleMeetingTest.class
+/MeetingParameterResolver.class
+/RoomParameterResolver.class
+/Utility.class
+/UtilityTest.class
+/DaysArgumentProvider.class
+/CalendarParameterResolver.class
+/Organization.class
+/OrganizationParameterResolver.class
+/PersonParameterResolver.class
+/MeetingStructureTest.class
+/MeetingStructuralTest.class

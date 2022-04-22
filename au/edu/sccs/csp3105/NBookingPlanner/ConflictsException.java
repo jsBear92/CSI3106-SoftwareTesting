@@ -4,13 +4,12 @@ package au.edu.sccs.csp3105.NBookingPlanner;
 
 @SuppressWarnings("serial")
 public class ConflictsException extends Exception {
-	public ConflictsException() {
+	public ConflictsException() throws ConflictsException {
 		// TODO Auto-generated constructor stub
 	}
 
-	public ConflictsException(String message) {
+	public ConflictsException(String message) throws ConflictsException {
 		super(message);
-		
 	}
 
 	public ConflictsException(Throwable cause) {
