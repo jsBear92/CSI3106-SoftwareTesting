@@ -35,7 +35,7 @@ public class MeetingExceptionTest {
 	@Order(1)
     @ParameterizedTest
     @ValueSource(ints = {0, 1, 2, 12, 13 })
-    @DisplayName("EQ / BVA + Exception: Month")
+    @DisplayName("Month exception")
     public void testInvalidMonth(int month, Room room) {
 	    Exception exception = assertThrows(ConflictsException.class, ()-> room.isBusy(month, 25, 3, 4));
 	    String expectedMessage = "Month does not exist.";
@@ -46,7 +46,7 @@ public class MeetingExceptionTest {
 	@Order(2)
     @ParameterizedTest
     @ValueSource(ints = {0, 1, 30, 31, 32 })
-    @DisplayName("EQ / BVA + Exception: Day")
+    @DisplayName("Day exception")
     public void testInvalidDay(int day, Room room) {
 	    Exception exception = assertThrows(ConflictsException.class, ()-> room.isBusy(5, day, 3, 4));
 	    String expectedMessage = "Day does not exist.";
@@ -57,7 +57,7 @@ public class MeetingExceptionTest {
 	@Order(3)
     @ParameterizedTest
     @ValueSource(ints = { -1, 0, 23, 24 })
-    @DisplayName("EQ / BVA + Exception: Start Hours")
+    @DisplayName("Start hour exception")
     public void testInvalidStartHrs(int startHrs, Room room) {
 	    Exception exception = assertThrows(ConflictsException.class, ()-> room.isBusy(5, 25, startHrs, 4));
 	    String expectedMessage = "Illegal hour.";
@@ -68,7 +68,7 @@ public class MeetingExceptionTest {
 	@Order(4)
     @ParameterizedTest
     @ValueSource(ints = { -1, 0, 23, 24 })
-    @DisplayName("EQ / BVA + Exception: End Hours")
+    @DisplayName("End hour exception")
     public void testInvalidEndHrs(int endHrs, Room room) {
 	    Exception exception = assertThrows(ConflictsException.class, ()-> room.isBusy(5, 25, 15, endHrs));
 	    String expectedMessage = "Illegal hour.";
@@ -79,7 +79,7 @@ public class MeetingExceptionTest {
 	@Order(5)
     @ParameterizedTest
     @ValueSource(strings = { "JO18.330", "ICT30.300", "ML13.218" })
-    @DisplayName("EQ / BVA + Exception: Room({ JO18.330, ICT30.300, ML13.218 })")
+    @DisplayName("Room exception")
     public void testInvalidRoom(String room, Organization org) {
 	    Exception exception = assertThrows(Exception.class, ()-> assertTrue(room == org.getRoom(room).getID()));
 	    String expectedMessage = "Requested room does not exist";
@@ -90,7 +90,7 @@ public class MeetingExceptionTest {
 	@Order(6)
     @ParameterizedTest
     @CsvFileSource(resources = "/tests/resources/employees.csv" )
-    @DisplayName("EQ / BVA + Exception: Attendees")
+    @DisplayName("Attendee exception")
     public void testInvalidAttendee(String name, Organization org) {
 	    Exception exception = assertThrows(Exception.class, ()-> assertTrue(name == org.getEmployee(name).getName()));
 	    String expectedMessage = "Requested employee does not exist";
