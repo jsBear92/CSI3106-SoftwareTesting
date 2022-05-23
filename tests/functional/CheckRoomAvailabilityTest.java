@@ -34,17 +34,42 @@ class CheckRoomAvailabilityTest {
 				err = e.getMessage();
 				System.out.println(err);
 				System.out.println("=====================");
-				
 			}
 			
 //			Line 29 uses inverse operation that is why we use assertFalse here
 			if (err!=null) {
-
 				assertFalse(true);
 			} else {
 				assertFalse(false);
 			}
+		}
+		System.out.println("=====================");
+    }
+    
+    @ParameterizedTest
+    @ValueSource(ints = {0, 1, 31, 32 })
+    @DisplayName("BVA Invalid days")
+	void testInvalidDay(int day, Organization org) {
+    	String err = null;
+    	
+		for(Room r: org.getRooms()){
+			try{
+				if(!(r.isBusy(9, day, 10, 11))){
+					System.out.println(r.getID());
+					err = null;
+				}
+			}catch(ConflictsException e){
+				err = e.getMessage();
+				System.out.println(err);
+				System.out.println("=====================");
+			}
 			
+//			Line 29 uses inverse operation that is why we use assertFalse here
+			if (err!=null) {
+				assertFalse(true);
+			} else {
+				assertFalse(false);
+			}
 		}
 		System.out.println("=====================");
     }
