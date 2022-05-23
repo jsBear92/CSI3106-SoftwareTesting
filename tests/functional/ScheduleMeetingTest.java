@@ -281,7 +281,7 @@ public class ScheduleMeetingTest {
 	
 	@Order(5)
     @ParameterizedTest
-    @ValueSource(strings = { "Kurt Cobain", "Ashley Martin", "Edith Cowan", "Elon Musk" })
+    @ValueSource(strings = { "Kurt Cobain", "Ashley Martin", "Edith Cowan", "MIKE SMITH" })
     @DisplayName("BVA Invalid attendee")
     public void testInvalidAttendee(String who, Organization org, Room room) {
 		ArrayList<Person> attendees = new ArrayList<Person>();
