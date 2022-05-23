@@ -14,12 +14,11 @@ import au.edu.sccs.csp3105.NBookingPlanner.ConflictsException;
 import tests.resolver.OrganizationParameterResolver;
 
 
-
 @ExtendWith(OrganizationParameterResolver.class)
 class CheckRoomAvailabilityTest {
-
+	
     @ParameterizedTest
-    @ValueSource(ints = {0, 1, 12, 13 })
+    @ValueSource(ints = { 0, 1, 12, 13 })
     @DisplayName("BVA Invalid months")
 	void testInvalidMonth(int month, Organization org) {
     	String err = null;
@@ -36,7 +35,6 @@ class CheckRoomAvailabilityTest {
 				System.out.println("=====================");
 			}
 			
-//			Line 29 uses inverse operation that is why we use assertFalse here
 			if (err!=null) {
 				assertFalse(true);
 			} else {
@@ -47,7 +45,7 @@ class CheckRoomAvailabilityTest {
     }
     
     @ParameterizedTest
-    @ValueSource(ints = {0, 1, 31, 32 })
+    @ValueSource(ints = { 0, 1, 31, 32 })
     @DisplayName("BVA Invalid days")
 	void testInvalidDay(int day, Organization org) {
     	String err = null;
@@ -64,7 +62,6 @@ class CheckRoomAvailabilityTest {
 				System.out.println("=====================");
 			}
 			
-//			Line 29 uses inverse operation that is why we use assertFalse here
 			if (err!=null) {
 				assertFalse(true);
 			} else {
@@ -74,4 +71,57 @@ class CheckRoomAvailabilityTest {
 		System.out.println("=====================");
     }
     
+    @ParameterizedTest
+    @ValueSource(ints = { -1, 0, 23, 24 })
+    @DisplayName("BVA Invalid start hour")
+	void testInvalidStartHour(int start, Organization org) {
+    	String err = null;
+    	
+		for(Room r: org.getRooms()){
+			try{
+				if(!(r.isBusy(9, 9, start, 11))){
+					System.out.println(r.getID());
+					err = null;
+				}
+			}catch(ConflictsException e){
+				err = e.getMessage();
+				System.out.println(err);
+				System.out.println("=====================");
+			}
+			
+			if (err!=null) {
+				assertFalse(true);
+			} else {
+				assertFalse(false);
+			}
+		}
+		System.out.println("=====================");
+    }
+    
+    @ParameterizedTest
+    @ValueSource(ints = { -1, 0, 23, 24 })
+    @DisplayName("BVA Invalid end hour")
+	void testInvalidEndHour(int end, Organization org) {
+    	String err = null;
+    	
+		for(Room r: org.getRooms()){
+			try{
+				if(!(r.isBusy(9, 9, end, 11))){
+					System.out.println(r.getID());
+					err = null;
+				}
+			}catch(ConflictsException e){
+				err = e.getMessage();
+				System.out.println(err);
+				System.out.println("=====================");
+			}
+			
+			if (err!=null) {
+				assertFalse(true);
+			} else {
+				assertFalse(false);
+			}
+		}
+		System.out.println("=====================");
+    }
 }
