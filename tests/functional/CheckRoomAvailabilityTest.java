@@ -22,17 +22,31 @@ class CheckRoomAvailabilityTest {
     @ValueSource(ints = {0, 1, 12, 13 })
     @DisplayName("BVA Invalid months")
 	void testInvalidMonth(int month, Organization org) {
+    	String err = null;
+    	
 		for(Room r: org.getRooms()){
 			try{
 				if(!(r.isBusy(month, 9, 10, 11))){
-					assertTrue(true);
 					System.out.println(r.getID());
+					err = null;
 				}
 			}catch(ConflictsException e){
-				System.out.println(e.getMessage());
-				assertTrue(false);
+				err = e.getMessage();
+				System.out.println(err);
+				System.out.println("=====================");
+				
 			}
-		}
+			
+//			Line 29 uses inverse operation that is why we use assertFalse here
+			if (err!=null) {
 
-	}
+				assertFalse(true);
+			} else {
+				assertFalse(false);
+			}
+			
+		}
+		System.out.println("=====================");
+    }
+    
 }
