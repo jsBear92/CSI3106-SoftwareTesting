@@ -12,7 +12,8 @@ Remote repository for event booking software component system.
 
 ## Note
 
-Make sure to delete the existing software testing directory if it already exists in the eclipse-workspace. After doing that, make sure to put the repository to the eclipse-workspace only not to /desktop or /documents folder to prevent import errors.
+Make sure to delete the existing software testing directory if it already exists in the eclipse-workspace using ``rm -rf CSI3106-SoftwareTesting
+`` After doing that, make sure to clone the repository to the **eclipse-workspace only** not to /desktop or /documents or any  other folder to prevent importing issues.
 
 ## Setting up your local repository using Eclipse IDE
 
