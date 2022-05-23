@@ -10,6 +10,10 @@ Remote repository for event booking software component system.
 2. IDE: [Eclipse](https://www.eclipse.org/downloads/) (recommended)
 3. Open SDK 18
 
+## Note
+
+Make sure to delete the existing software testing directory if it already exists in the eclipse-workspace. After doing that, make sure to put the repository to the eclipse-workspace only not to /desktop or /documents folder to prevent import errors.
+
 ## Setting up your local repository using Eclipse IDE
 
 1. Click the Code button, select **HTTPS** and copy the url.
