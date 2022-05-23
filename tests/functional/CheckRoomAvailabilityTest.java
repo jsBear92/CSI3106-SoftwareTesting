@@ -35,7 +35,7 @@ class CheckRoomAvailabilityTest {
 				System.out.println("=====================");
 			}
 			
-			if (err!=null) {
+			if (err != null) {
 				assertFalse(true);
 			} else {
 				assertFalse(false);
@@ -62,7 +62,7 @@ class CheckRoomAvailabilityTest {
 				System.out.println("=====================");
 			}
 			
-			if (err!=null) {
+			if (err != null) {
 				assertFalse(true);
 			} else {
 				assertFalse(false);
@@ -89,7 +89,7 @@ class CheckRoomAvailabilityTest {
 				System.out.println("=====================");
 			}
 			
-			if (err!=null) {
+			if (err != null) {
 				assertFalse(true);
 			} else {
 				assertFalse(false);
@@ -116,7 +116,7 @@ class CheckRoomAvailabilityTest {
 				System.out.println("=====================");
 			}
 			
-			if (err!=null) {
+			if (err != null) {
 				assertFalse(true);
 			} else {
 				assertFalse(false);
