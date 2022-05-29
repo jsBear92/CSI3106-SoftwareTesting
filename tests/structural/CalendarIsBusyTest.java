@@ -31,6 +31,10 @@ class CalendarIsBusyTest {
 	// Indexed by Month, Day
 	private static ArrayList<ArrayList<ArrayList<Meeting>>> occupied;
 	
+	// This method will run every time a testable method is executed.
+	// Think of this as a constructor
+	// This will initialize the 2D Calendar array[month[], date[]]
+	// and add those special dates below
 	@BeforeEach
 	public void setup() {
 		occupied = new ArrayList<ArrayList<ArrayList<Meeting>>>();
@@ -59,8 +63,8 @@ class CalendarIsBusyTest {
 	}
 	
 	
-	// Event date  9, 26, 10, 11
-	// This unit test should pass since there is no event booked for  9, 26
+	// Method definition for all unit test.
+	// This method is used to all SCPaths
 	public Boolean testIsBusy(int month, int day, int start, int end) throws ConflictsException {
 		// 2.1
 		Boolean busy = false;
