@@ -3,6 +3,7 @@ package tests.structural;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -15,7 +16,14 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import au.edu.sccs.csp3105.NBookingPlanner.Calendar;
 import au.edu.sccs.csp3105.NBookingPlanner.ConflictsException;
 import au.edu.sccs.csp3105.NBookingPlanner.Meeting;
+import au.edu.sccs.csp3105.NBookingPlanner.Planner;
 import tests.resolver.CalendarParameterResolver;
+
+//Note
+//
+//11, 30 error see Calendar.java at line 43
+//occupied.get(9).get(26).add(new Meeting(9, 26, "Apocalypse"));
+//System.out.println(occupied.get(month).get(day).get(0).getDescription());
 
 
 @ExtendWith(CalendarParameterResolver.class)
@@ -23,7 +31,7 @@ import tests.resolver.CalendarParameterResolver;
 @DisplayName("Calendar is busy")
 class CalendarIsBusyTest {
 	// Indexed by Month, Day
-	private ArrayList<ArrayList<ArrayList<Meeting>>> occupied;
+	private static ArrayList<ArrayList<ArrayList<Meeting>>> occupied;
 	
 	@BeforeEach
 	public void setup() {
@@ -52,13 +60,13 @@ class CalendarIsBusyTest {
 		occupied.get(11).get(31).add(new Meeting(11,31,"Day does not exist"));
 	}
 	
-	@Test
-	@Order(1)
-	@DisplayName("SC Path : 2, 2.1, 2.2, 2.3(T), 2.4(T), 2.5, 2.2, 2.9")
-	public void testStatementCoverage1(Calendar calendar) throws ConflictsException {
+	
+	// Event date  9, 26, 10, 11
+	// This unit test should pass since there is no event booked for  9, 26
+	public Boolean dateIsNotBusy() throws ConflictsException {
 		// 2.1
 		int month = 9;
-		int day   = 25;
+		int day   = 26;
 		int start = 10;
 		int end   = 11;
 		Boolean busy = false;
@@ -66,8 +74,8 @@ class CalendarIsBusyTest {
 		// 2.2
 		Calendar.checkTimes(month, day, start, end);
 		
+		// 2.3
 		for(Meeting toCheck : occupied.get(month).get(day)) {
-			// 2.3 && 2.4 && 2.5
 			if(start >= toCheck.getStartTime() && start <= toCheck.getEndTime()){
 				busy=true;
 			}else if(end >= toCheck.getStartTime() && end <= toCheck.getEndTime()){
@@ -75,68 +83,21 @@ class CalendarIsBusyTest {
 			}
 		}
 		
-		// 2.2
-		// Note: In the Planner class, isBusy() returns a boolean
-		// In this unit test, we will use assertTrue to evaluate path traversed.
-		// 2.9
-		assertFalse(busy);
+		// 2.10
+		return busy;
+	// 2.11 Exit
 	}
 	
 	@Test
-	@Order(2)
-	@DisplayName("SC Path : 2, 2.1, 2.2, 2.3, 2.6, 2.")
-	void testStatementCoverage2(Calendar calendar) {
-		// 2.1
-		int month = 9;
-		int day   = 25;
-		int start = 10;
-		int end   = 11;
-		Boolean busy = false;
-		
+	@DisplayName("SC Path 1: 2.1, 2.2, 2.3(F), 2.10, 2.11")
+	public void dateIsNotBusyDriver() {
+		CalendarIsBusyTest SCPath1 = new CalendarIsBusyTest();
 		try {
-			Calendar.checkTimes(month, day, start, end);
+			System.out.println(SCPath1.dateIsNotBusy());
 		} catch (ConflictsException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		assertTrue(true);
 	}
-	
-	@Test
-	@Order(88)
-	@DisplayName("Branch coverage")
-	void testBranchCoverage(Calendar calendar) {
-		int month = 9;
-		int day   = 25;
-		int start = 10;
-		int end   = 11;
-		Boolean busy = false;
-		
-		try {
-			Calendar.checkTimes(month, day, start, end);
-		} catch (ConflictsException e) {
-			e.printStackTrace();
-		}
-		
-		assertTrue(true);
-	}
-	
-	@Test
-	@Order(99)
-	@DisplayName("Conditional coverage")
-	void testConditionalCoverage(Calendar calendar) {
-		int month = 9;
-		int day   = 25;
-		int start = 10;
-		int end   = 11;
-		Boolean busy = false;
-		
-		try {
-			Calendar.checkTimes(month, day, start, end);
-		} catch (ConflictsException e) {
-			e.printStackTrace();
-		}
-		
-		assertTrue(true);
-	}
+
 }
