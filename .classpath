@@ -15,10 +15,5 @@
 	<classpathentry kind="lib" path="deps/objenesis-2.6.jar"/>
 	<classpathentry kind="lib" path="deps/opentest4j-1.1.1.jar"/>
 	<classpathentry kind="lib" path="deps/system-lambda-1.2.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/mbern/.p2/pool/plugins/org.junit.jupiter.params_5.8.1.v20211018-1956.jar">
-		<attributes>
-			<attribute name="javadoc_location" value="http://junit.org/junit5/docs/current/api/"/>
-		</attributes>
-	</classpathentry>
 	<classpathentry kind="output" path=""/>
 </classpath>
