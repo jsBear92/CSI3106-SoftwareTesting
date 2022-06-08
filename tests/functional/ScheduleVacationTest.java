@@ -32,8 +32,6 @@ class ScheduleVacationTest {
 	void testInvalidStartMonth(int sMonth, Organization org, Room room) {
 		ArrayList<Person> attendees = new ArrayList<Person>();
 		Person who = new Person();
-		int sDay = 5;
-		int eMonth = 5;
 		int eDay = 10;
 		String name = "Ashley Martin";
 		if(!name.equals("cancel")){
@@ -65,8 +63,6 @@ class ScheduleVacationTest {
 		ArrayList<Person> attendees = new ArrayList<Person>();
 		Person who = new Person();
 		int sMonth = 5;
-		int eMonth = 5;
-		int eDay = 10;
 		String name = "Ashley Martin";
 		if(!name.equals("cancel")){
 			try{
@@ -89,14 +85,12 @@ class ScheduleVacationTest {
 	
 	@Order(3)
     @ParameterizedTest
-	@ValueSource(ints = { 0, 1, 29, 30, 31, 32 })
+	@ValueSource(ints = { 0, 1, 5, 12, 13 })
     @DisplayName("BVA Invalid end month")
 	void testInvalidEndMonth(int eMonth, Organization org, Room room) {
 		ArrayList<Person> attendees = new ArrayList<Person>();
 		Person who = new Person();
-		int sMonth = 5;
 		int sDay = 1;
-		int eDay = 10;
 		String name = "Ashley Martin";
 		if(!name.equals("cancel")){
 			try{
@@ -114,6 +108,65 @@ class ScheduleVacationTest {
 		} catch (ConflictsException e) {
 			System.out.println(e.getMessage());
 			assertTrue(false);
+		}
+	}
+	
+	@Order(4)
+    @ParameterizedTest
+	@ValueSource(ints = { 0, 1, 29, 30, 31, 32 })
+    @DisplayName("BVA Invalid end day")
+	void testInvalidEndDay(int eDay, Organization org, Room room) {
+		ArrayList<Person> attendees = new ArrayList<Person>();
+		Person who = new Person();
+		int sMonth = 5;
+		String name = "Ashley Martin";
+		if(!name.equals("cancel")){
+			try{
+				who = org.getEmployee(name);
+				attendees.add(who);
+			}catch(Exception e){
+				System.out.println(e.getMessage());
+			}
+		}
+		
+		Meeting meeting = new Meeting(sMonth, eDay, 0, 23, attendees, room, "vacation");
+		try {
+			who.addMeeting(meeting);
+			assertTrue(true);
+		} catch (ConflictsException e) {
+			System.out.println(e.getMessage());
+			assertTrue(false);
+		}
+	}
+	
+	@Order(5)
+    @ParameterizedTest
+	@ValueSource(strings = { "Ashley Martin", "Elon Musk", "ashley martin" })
+    @DisplayName("BVA Invalid attendee")
+	void testInvalidAttendee(String name, Organization org, Room room) {
+		ArrayList<Person> attendees = new ArrayList<Person>();
+		Person who = new Person();
+		int sMonth = 5;
+		int eDay = 10;
+		if(!name.equals("cancel")){
+			try{
+				who = org.getEmployee(name);
+				attendees.add(who);
+			}catch(Exception e){
+				System.out.println(e.getMessage());
+				assertTrue(false);
+			}
+		}
+
+		for (int day=1;day<=eDay;day++){
+			Meeting meeting = new Meeting(sMonth,day,0,23,attendees, room,"vacation");
+			try {
+				who.addMeeting(meeting);
+				assertTrue(true);
+			} catch(ConflictsException e){
+				System.out.println(e.getMessage());
+				assertTrue(false);
+			}
 		}
 	}
 }
