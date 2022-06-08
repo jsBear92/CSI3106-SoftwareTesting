@@ -2,7 +2,6 @@ package tests.exception;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.ArgumentMatchers.matches;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.MethodOrderer;
@@ -12,7 +11,6 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
-import au.edu.sccs.csp3105.NBookingPlanner.ConflictsException;
 import au.edu.sccs.csp3105.NBookingPlanner.Organization;
 import au.edu.sccs.csp3105.NBookingPlanner.Room;
 import tests.resolver.CalendarParameterResolver;
@@ -27,7 +25,7 @@ import tests.resolver.RoomParameterResolver;
 @ExtendWith(RoomParameterResolver.class)
 @ExtendWith(OrganizationParameterResolver.class)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-public class CheckAgendaRoomExceptionTest {
+public class CheckAgendaPersonExceptionTest {
 	
 	/*
 	 * First and Second Method have problems of IndexOutOfBoundsException because there is not existed alternative
@@ -59,11 +57,11 @@ public class CheckAgendaRoomExceptionTest {
 	
 	@Order(3)
 	@ParameterizedTest
-	@ValueSource(strings = { "nothing", "", "JO18.330" })
+	@ValueSource(strings = { "nothing", "", "Mike Smith" })
 	@DisplayName("Room Exception")
 	public void testInvalidRoom(String name, Organization org) {
-		Exception exception = assertThrows(Exception.class, ()-> org.getRoom(name));
-		String expectedMessage = "Requested room does not exist";
+		Exception exception = assertThrows(Exception.class, ()-> org.getEmployee(name));
+		String expectedMessage = "Requested employee does not exist";
 		String actualMessage = exception.getMessage();
 		assertTrue(actualMessage.contains(expectedMessage));
 	}
