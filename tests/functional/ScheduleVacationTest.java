@@ -55,6 +55,35 @@ class ScheduleVacationTest {
 				assertTrue(false);
 			}
 		}
-
-}
+	}
+	
+	@Order(2)
+    @ParameterizedTest
+	@ValueSource(ints = { 0, 1, 29, 30, 31, 32 })
+    @DisplayName("BVA Invalid start day")
+	void testInvalidStartDay(int sDay, Organization org, Room room) {
+		ArrayList<Person> attendees = new ArrayList<Person>();
+		Person who = new Person();
+		int sMonth = 5;
+		int eMonth = 5;
+		int eDay = 10;
+		String name = "Ashley Martin";
+		if(!name.equals("cancel")){
+			try{
+				who = org.getEmployee(name);
+				attendees.add(who);
+			}catch(Exception e){
+				System.out.println(e.getMessage());
+			}
+		}
+		
+		Meeting meeting = new Meeting(sMonth, sDay, 0, 23, attendees, room, "vacation");
+		try {
+			who.addMeeting(meeting);
+			assertTrue(true);
+		} catch (ConflictsException e) {
+			System.out.println(e.getMessage());
+			assertTrue(false);
+		}
+	}
 }
