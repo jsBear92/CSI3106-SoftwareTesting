@@ -15,5 +15,6 @@
 	<classpathentry kind="lib" path="deps/objenesis-2.6.jar"/>
 	<classpathentry kind="lib" path="deps/opentest4j-1.1.1.jar"/>
 	<classpathentry kind="lib" path="deps/system-lambda-1.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/mbern/Desktop/easymock-4.3/easymock-4.3.jar"/>
 	<classpathentry kind="output" path=""/>
 </classpath>

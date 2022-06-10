@@ -29,7 +29,7 @@ import tests.resolver.RoomParameterResolver;
 @ExtendWith(RoomParameterResolver.class)
 @ExtendWith(OrganizationParameterResolver.class)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-public class MeetingExceptionTest {
+public class UtilityTest {
 
 	@Order(1)
     @ParameterizedTest
