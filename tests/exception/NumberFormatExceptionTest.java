@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 class NumberFormatExceptionTest {
 
 	@Test
-	void test() {
+	void testInvalidUserInput() {
 		fail("Not yet implemented");
 	}
 

@@ -9,14 +9,16 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 
 class IOExceptionTest {
-
-	@Test
-	public void testIOException() throws IOException {
-		String testInput = "";
+	@ParameterizedTest
+	@ValueSource(strings = { "", "1", "Ashley Martin" })
+	@DisplayName("Test IOException")
+	public void testUserInput(String testInput) throws IOException {
 		InputStream stream = new ByteArrayInputStream(testInput.getBytes(StandardCharsets.UTF_8));
 
 		BufferedReader br = new BufferedReader(new InputStreamReader(stream));
@@ -29,7 +31,4 @@ class IOExceptionTest {
 			assertTrue(true);
 		}
 	}
-	
-
-
 }
