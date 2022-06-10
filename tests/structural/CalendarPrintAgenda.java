@@ -120,72 +120,67 @@ public class CalendarPrintAgenda {
 		
 		// path start
 		public String testPrintAgenda(int month) throws ConflictsException{
-			// path 7.1
+			// path 6.1
 			String agenda;
-			// path 7.2
+			// path 6.2
 			if (occupied.get(month).isEmpty()){
-				// path 7.3
+				// path 6.3
 				agenda = "No Meetings booked for this month.\n\n";	
 			}
 			else {
-				// path 7.4
+				// path 6.6
 			     agenda = "Agenda for "+month+":\n";
-			     // path 7.5
 			    for(ArrayList<Meeting> toPrint : occupied.get(month)){
-			    	// path 7.6
 				 for(Meeting meeting: toPrint){
-					 // path 7.7
+					 // path 6.7
 					agenda = agenda+meeting.toString()+"\n";
 				  }
 			    }
 			}
-			// path 7.8
+			// path 6.4
 			return agenda;
-		} // path end
+		} // path 6.5 (End)
 
 		
 		// path start
 		public String testPrintAgenda(int month, int day){
-			// path 8.1 
+			// path 7.1 
 			String agenda;
-			// path 8.2
+			// path 7.2
 			if (occupied.get(month).get(day).isEmpty()){
-				// path 8.3
+				// path 7.3
 				agenda = "No Meetings booked on this date.\n\n";	
 			}
 			else {
-				// path 8.4
+				// path 7.6
 				agenda = "Agenda for "+month+"/"+day+" are as follows:\n";
-			
-				// path 8.5
 			   for(Meeting toPrint : occupied.get(month).get(day)){
-				   // path 8.6
+				   // path 7.7
 				agenda = agenda+toPrint.toString()+"\n";
 			   }
 			}
-			// path 8.7	
+			// path 7.4	
 			return agenda; 	
-		} // path end
+		} // path 7.5 (End)
 		
 		@Test
-		@DisplayName("ST Path(7) 1: 7.1, 7.2(T), 7.3, 7.8 (error - this parameter cannot catch empty)")
+		@DisplayName("ST Path(6) 1: 6.1, 6.2(T), 6.3, 6.4 (error - this parameter cannot catch empty)")
 		void testSTPath1() {
 			CalendarPrintAgenda STPath1 = new CalendarPrintAgenda();
 			try {
 				System.out.println("===============================================================");
-				System.out.println("SC Path(7) 1: 7.1, 7.2(T), 7.3, 7.8");
+				System.out.println("ST Path(6) 1: 6.1, 6.2(T), 6.3, 6.4");
 				System.out.println("Class and method under test: Calendar.printAgenda(int month)");
 				System.out.println("Input: 1");
 				System.out.println("Result: " + STPath1.testPrintAgenda(1));
 				System.out.println("===============================================================");
 			} catch (ConflictsException e) {
-				// TODO: handle exception
 				e.printStackTrace();
 			}
 		}
 		
 		@Test
-		@DisplayName("ST Path(7) 2: 7.1, 7.2(F), 7.4, 7.5, 7.6, 7.7, 7.8")
+		@DisplayName("ST Path(6) 2: 6.1, 6.2(F), 6.6, 6.7, 6.4")
 		void testSTPath2() throws ConflictsException {
 			ArrayList<Person> attendees = new ArrayList<Person>();
 			Room room = new Room();
@@ -220,7 +215,7 @@ public class CalendarPrintAgenda {
 			
 			STPath2.addMeeting(meeting);
 			System.out.println("===============================================================");
-			System.out.println("SC Path(7) 2: 7.1, 7.2(F), 7.4, 7.5, 7.6, 7.7, 7.8");
+			System.out.println("ST Path(6) 2: 6.1, 6.2(F), 6.6, 6.7, 6.4");
 			System.out.println("Class and method under test: Calendar.printAgenda(int month)");
 			System.out.println("Input: 2");
 			System.out.println("Result: " + STPath2.testPrintAgenda(1));
@@ -228,11 +223,11 @@ public class CalendarPrintAgenda {
 		}
 		
 		@Test
-		@DisplayName("ST Path(8) 1: 8.1, 8.2(T), 8.3, 8.7")
+		@DisplayName("ST Path(7) 1: 7.1, 7.2(T), 7.3, 7.4")
 		void testSTPath3() throws ConflictsException {
 			CalendarPrintAgenda STPath3 = new CalendarPrintAgenda();
 			System.out.println("===============================================================");
-			System.out.println("SC Path(8) 1: 8.1, 8.2(T), 8.3, 8.7");
+			System.out.println("ST Path(7) 1: 7.1, 7.2(T), 7.3, 7.4");
 			System.out.println("Class and method under test: Calendar.printAgenda(int month, int day)");
 			System.out.println("Input: 1, 1");
 			System.out.println("Result: " + STPath3.testPrintAgenda(1, 1));
@@ -240,7 +235,7 @@ public class CalendarPrintAgenda {
 		}
 		
 		@Test
-		@DisplayName("ST Path(8) 2: 8.1, 8.2(F), 8.4, 8.5, 8.6, 8.7")
+		@DisplayName("ST Path(7) 2: 7.1, 7.2(F), 7.6, 7.7, 7.4")
 		void testSTPath4() throws ConflictsException {		
 			ArrayList<Person> attendees = new ArrayList<Person>();
 			Room room = new Room();
@@ -276,7 +271,7 @@ public class CalendarPrintAgenda {
 			STPath4.addMeeting(meeting);
 			
 			System.out.println("===============================================================");
-			System.out.println("SC Path(8) 2: 8.1, 8.2(F), 8.4, 8.5, 8.6, 8.7");
+			System.out.println("ST Path(7) 2: 7.1, 7.2(F), 7.6, 7.7, 7.4");
 			System.out.println("Class and method under test: Calendar.printAgenda(int month, int day)");
 			System.out.println("Input: 1, 1");
 			System.out.println("Result: " + STPath4.testPrintAgenda(1, 3));
