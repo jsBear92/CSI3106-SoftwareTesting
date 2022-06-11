@@ -2,13 +2,11 @@ package tests.exception;
 
 import static org.junit.Assert.assertTrue;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 
 /**
  * This test case is shortcut version of the Planners main menu
@@ -18,11 +16,13 @@ import org.junit.jupiter.api.Test;
  * @author mbernal
  *
  */
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class NumberFormatExceptionTest {
+	
 	@Order(1)
 	@Test
 	@DisplayName("1. Input as string")
-	void testValidUserInputString() {
+	public void testValidUserInputString() {
 		try {
 			int userInput = Integer.parseInt("One");
 		} catch (NumberFormatException e) {
@@ -34,7 +34,7 @@ class NumberFormatExceptionTest {
 	@Order(2)
 	@Test
 	@DisplayName("2. Input as double")
-	void testValidUserInputDouble() {
+	public void testValidUserInputDouble() {
 		String num = "1.1";
 		try {
 			int userInput = Integer.parseInt(num);
@@ -47,13 +47,21 @@ class NumberFormatExceptionTest {
 	@Order(3)
 	@Test
 	@DisplayName("3. Input as integer")
-	void testValidUserInputInteger() {
+	public void testValidUserInputInteger() {
+		String error = "";
 		String num = "1";
 		try {
 			int userInput = Integer.parseInt(num);
 		} catch (NumberFormatException e) {
+			error = e.getMessage();
 			System.out.println("Please enter a number from 0 - 6");
 			assertTrue(true);
 		}
+		
+		if (error.isEmpty()) {
+			System.out.println("null");
+		}
+
+		
 	}
 }

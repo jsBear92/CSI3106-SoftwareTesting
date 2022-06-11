@@ -50,10 +50,10 @@ class IOExceptionTest {
 		BufferedReader br = new BufferedReader(new InputStreamReader(stream));
 
 		if (br.readLine() == null) {
-			System.out.println("Error reading in value");
+			System.out.println("1. Error reading in value");
 			assertTrue(true);
 		} else {
-			System.out.println(br.readLine());
+			System.out.println("2. " +br.readLine());
 			assertTrue(true);
 		}
 	}
