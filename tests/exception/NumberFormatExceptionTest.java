@@ -1,44 +1,59 @@
 package tests.exception;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.assertTrue;
 
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.ValueSource;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.Test;
+
+/**
+ * This test case is shortcut version of the Planners main menu
+ * where the system prompts the user of the option from 1-6
+ * The inputOutput has been remove to bypass it's functionality for the test cases purposes
+ * No user-interaction required
+ * @author mbernal
+ *
+ */
 class NumberFormatExceptionTest {
-
-	@ParameterizedTest
-	@ValueSource(ints = { 0, 1, 6, 7 })
-	void testValidUserInput(int userInput) {
+	@Order(1)
+	@Test
+	@DisplayName("1. Input as string")
+	void testValidUserInputString() {
 		try {
-			if (userInput >= 0 && userInput <=6) {
-				if (userInput == 1) {
-					System.out.println("this.scheduleMeeting();");
-				}
-				if (userInput == 2){
-					System.out.println("this.scheduleVacation();");
-				}
-				if (userInput == 3){
-					System.out.println("this.checkRoomAvailability();");
-				}
-				if (userInput == 4){
-					System.out.println("this.checkEmployeeAvailability();");
-				}
-				if (userInput == 5){
-					System.out.println("this.checkAgendaRoom();");
-				}
-				if (userInput == 6){
-					System.out.println("this.checkAgendaPerson();");
-				}
-				if (userInput == 0) {
-					System.out.println("System.exit(0);");
-				} else {
-					System.out.println("Please enter a number from 0 - 6");
-					System.out.println("this.mainMenu();");
-				}
-			}
+			int userInput = Integer.parseInt("One");
 		} catch (NumberFormatException e) {
 			System.out.println("Please enter a number from 0 - 6");
+			assertTrue(true);
+		}
+	}
+
+	@Order(2)
+	@Test
+	@DisplayName("2. Input as double")
+	void testValidUserInputDouble() {
+		String num = "1.1";
+		try {
+			int userInput = Integer.parseInt(num);
+		} catch (NumberFormatException e) {
+			System.out.println("Please enter a number from 0 - 6");
+			assertTrue(true);
+		}
+	}
+
+	@Order(3)
+	@Test
+	@DisplayName("3. Input as integer")
+	void testValidUserInputInteger() {
+		String num = "1";
+		try {
+			int userInput = Integer.parseInt(num);
+		} catch (NumberFormatException e) {
+			System.out.println("Please enter a number from 0 - 6");
+			assertTrue(true);
 		}
 	}
 }
