@@ -14,9 +14,35 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
 
+
+/**
+ * Test Planner.inputOutput() method functionality
+ *
+ */
 class IOExceptionTest {
+	
+	/**
+	 * //	getClass().getSimpleName()
+	 * Passes a prompt to the user and returns the user specified 
+	 * string.
+	 * @param message - User input.
+	 * @return String - Entered string.
+	 */
+	private String inputOutput(String message) {
+		System.out.println(message);
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		String returnString = "";
+		try {
+			returnString = br.readLine();
+		}
+		catch (IOException e){
+			System.out.println("Error reading in value");
+		}
+		return returnString;
+	}
+	
 	@ParameterizedTest
-	@ValueSource(strings = { "", "1", "Ashley Martin" })
+	@ValueSource(strings = { "", "1" })
 	@DisplayName("Test IOException")
 	public void testUserInput(String testInput) throws IOException {
 		InputStream stream = new ByteArrayInputStream(testInput.getBytes(StandardCharsets.UTF_8));
