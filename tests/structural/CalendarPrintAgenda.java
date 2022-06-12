@@ -217,7 +217,7 @@ public class CalendarPrintAgenda {
 			System.out.println("===============================================================");
 			System.out.println("ST Path(6) 2: 6.1, 6.2(F), 6.6, 6.7, 6.4");
 			System.out.println("Class and method under test: Calendar.printAgenda(int month)");
-			System.out.println("Input: 2");
+			System.out.println("Input: 1");
 			System.out.println("Result: " + STPath2.testPrintAgenda(1));
 			System.out.println("===============================================================");
 		}

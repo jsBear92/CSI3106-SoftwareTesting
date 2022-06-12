@@ -2,6 +2,7 @@ package tests.functional;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
@@ -13,6 +14,7 @@ import tests.resolver.OrganizationParameterResolver;
 @ExtendWith(OrganizationParameterResolver.class)
 public class CheckAgendaRoomTest  {
 	
+	@Order(1)
 	@ParameterizedTest
 	@ValueSource(ints = {-1, 0, 1, 12, 13, 14})
 	@DisplayName("[BVA] Valid month in Check Agenda Room")
@@ -26,6 +28,7 @@ public class CheckAgendaRoomTest  {
 		}
 	}
 	
+	@Order(2)
 	@ParameterizedTest
 	@ValueSource(strings = {"first", "1"})
 	@DisplayName("[EQ] Valid month in Check Agenda Room")
@@ -39,6 +42,7 @@ public class CheckAgendaRoomTest  {
 		}
 	}
 	
+	@Order(3)
 	@ParameterizedTest
 	@ValueSource(ints = {-1, 0, 1, 31, 32, 33})
 	@DisplayName("[BVA] Valid day in Check Agenda Room")
@@ -52,6 +56,7 @@ public class CheckAgendaRoomTest  {
 		}
 	}
 	
+	@Order(4)
 	@ParameterizedTest
 	@ValueSource(strings = {"first", "1"})
 	@DisplayName("[EQ] Valid day in Check Agenda Room")
@@ -65,6 +70,7 @@ public class CheckAgendaRoomTest  {
 		}
 	}
 	
+	@Order(5)
 	@ParameterizedTest
 	@ValueSource(strings = {"nothing", "JO7.221"})
 	@DisplayName("[EQ] Valid Room name in Check Agenda Room")
